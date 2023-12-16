@@ -1,11 +1,15 @@
 from random import randint
 
 class Drone():
-    def __init__(self):
+    def __init__(self, speed):
         self.altitude = 0
+        self.speed = speed
+
+    def __str__(self):
+        return "Dron o mocy:" + str(self.speed) + ", na wysokości: " + str(self.altitude)
 
     def moveUp(self):
-        self.altitude += 1
+        self.altitude += self.speed
 
 
 # lista do przechowania 10 dronów
@@ -19,15 +23,13 @@ drones = list()
 
 
 # wykorzystane wyrazenie listowne do stworzenia 10 dronów
-drones = [Drone() for _ in range(10)]
+drones = [Drone(randint(1,10)) for _ in range(10)]
 
 # podniesienie losowego drona w góre
 for i in range(1000):
     droneIndex = randint(0, 9)
     drones[droneIndex].moveUp()
 
-
 # wyświetlnie dronów
 for drone in drones:
-    print("Dron: ", drone, "jest na wysokosci: ", drone.altitude)
-
+    print(drone)
