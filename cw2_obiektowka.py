@@ -83,23 +83,19 @@ class DroneFleet:
             print("Nie ma takiego drona we flocie")
 
     def display_status(self):
+        print("Status floty to:")
         # wyświetlnie dronów
         for drone in self.drones:
             print(drone)
 
+
+flota = DroneFleet()
+
 # wykorzystane wyrazenie listowne do stworzenia 10 dronów
-drones = [Drone(randint(1,10), 1000, 100, "Nokia") for _ in range(10)]
+# drones = [Drone(randint(1,10), 1000, 100, "Nokia") for _ in range(10)]
 
-# podniesienie losowego drona w góre
-for i in range(1000):
-    droneIndex = randint(0, 9)
-    drones[droneIndex].moveUp()
+for _ in range(100):
+    newDrone = Drone(randint(1,10), 1000, 100, "Nokia")
+    flota.add_drone(newDrone)
 
-# obniżenie losowego drona w góre
-for i in range(1000):
-    droneIndex = randint(0, 9)
-    drones[droneIndex].moveDown()
-
-
-drones[1].fly()
-print(drones[1].altitude)
+flota.display_status()
