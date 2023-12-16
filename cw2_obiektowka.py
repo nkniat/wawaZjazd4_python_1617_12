@@ -69,11 +69,23 @@ class Drone():
 oraz aktualizacje statusu floty
 """
 class DroneFleet:
-    pass
+    def __init__(self):
+        self.drones = list()
 
+    def add_drone(self, drone):
+        self.drones.append(drone)
 
-# lista do przechowania 10 dronów
-drones = list()
+    def remove_drone(self, drone):
+        if drone in self.drones:
+            self.drones.remove(drone)
+            print("Dron usunięty z floty")
+        else:
+            print("Nie ma takiego drona we flocie")
+
+    def display_status(self):
+        # wyświetlnie dronów
+        for drone in self.drones:
+            print(drone)
 
 # wykorzystane wyrazenie listowne do stworzenia 10 dronów
 drones = [Drone(randint(1,10), 1000, 100, "Nokia") for _ in range(10)]
@@ -88,9 +100,6 @@ for i in range(1000):
     droneIndex = randint(0, 9)
     drones[droneIndex].moveDown()
 
-# wyświetlnie dronów
-for drone in drones:
-    print(drone)
 
 drones[1].fly()
 print(drones[1].altitude)
