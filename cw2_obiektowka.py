@@ -98,7 +98,7 @@ class DeliveryDrone(Drone):
         return "Dostawczy dron marki: " + self.manufacturer + "o załadunku: " + str(self.cargo_capacity)
 
     def delivery_package(self, package_weight):
-        if (self.cargo_capacity + package_weight) <= self.cargo_capacity:
+        if (self.current_cargo + package_weight) <= self.cargo_capacity:
             self.current_cargo += package_weight
             print("Zabieram paczkę")
         else:
@@ -115,3 +115,10 @@ for _ in range(100):
     flota.add_drone(newDrone)
 
 flota.display_status()
+
+myDeliveryDrone = DeliveryDrone(6, 5000, 100, "DroneX", 10)
+print(myDeliveryDrone)
+
+myDeliveryDrone.fly()
+myDeliveryDrone.land()
+myDeliveryDrone.delivery_package(2)
