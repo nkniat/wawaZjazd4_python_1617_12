@@ -4,10 +4,26 @@ from selenium import webdriver
 #inicjalizacja przeglądarki Chrome
 driver = webdriver.Chrome()
 
-# Otwarcie okna przeglądarki
-driver.get("https://www.google.com")
+url = "https://www.google.com"
+new_url = "https://www.wp.pl"
 
-time.sleep(5)
+# Otwarcie okna przeglądarki
+driver.get(url)
+
+# Sterowanie rozmiarem przeglądarki
+driver.maximize_window()
+
+# Otwarcie nowej zakładki
+driver.execute_script("window.open('');")
+
+# przełaczenie do okna
+driver.switch_to.window(driver.window_handles[1])
+driver.get(new_url)
+
+# Zamyka daną zakładkę
+driver.close()
+
+time.sleep(15)
 
 # Zakończ działanie przeglądarki
 driver.quit()
