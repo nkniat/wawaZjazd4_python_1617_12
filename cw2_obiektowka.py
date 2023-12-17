@@ -88,6 +88,22 @@ class DroneFleet:
         for drone in self.drones:
             print(drone)
 
+class DeliveryDrone(Drone):
+    def __init__(self, speed, max_altitude, battery_life, manufacturer, cargo_capacity):
+        super().__init__(speed, max_altitude, battery_life, manufacturer)
+        self.cargo_capacity = cargo_capacity
+        self.current_cargo = 0
+
+    def __str__(self):
+        return "Dostawczy dron marki: " + self.manufacturer + "o załadunku: " + str(self.cargo_capacity)
+
+    def delivery_package(self, package_weight):
+        if (self.cargo_capacity + package_weight) <= self.cargo_capacity:
+            self.current_cargo += package_weight
+            print("Zabieram paczkę")
+        else:
+            print("Przykro mi, nie zmieszczę tej paczki")
+
 
 flota = DroneFleet()
 
