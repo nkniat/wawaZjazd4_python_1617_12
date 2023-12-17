@@ -12,3 +12,17 @@ def test_1():
     #assert multiply(100, 1.1) == 110, "Test mnożenia zmiennoprzecinkowego niezaliczony"
     assert compare_floats(multiply(100, 1.1), 110)
 
+def test_2():
+    assert fizzbuzz(1) == "1"
+    assert fizzbuzz(2) == "2"
+    assert fizzbuzz(3) == "Fizz"
+    assert fizzbuzz(4) == "4"
+    assert fizzbuzz(5) == "Buzz"
+    assert fizzbuzz(6) == "Fizz"
+    assert fizzbuzz(10) == "Buzz"
+    assert fizzbuzz(15) == "FizzBuzz"
+
+
+def test_3():
+    assert fizzbuzz(0) == None
+    assert fizzbuzz("kot") == None
